@@ -1,15 +1,27 @@
 weight = float(input("Enter your weight: "))
-kg_or_lbs = input("Weight entered above is in Kg or lbs: ")
-kilogram = "Kg"
-Pound = "lbs"
-kg = 2.20462  # lbs
+unit = input("Weight entered is in (K)kg or (L)lbs: ")
+kilogram = "K"
+Pound = "L"
 lbs = 0.453592 # kg
-if kg_or_lbs == kilogram:
-    weight = weight * kg
-    print("your weight is " + str(weight) + " lbs")
-elif kg_or_lbs == Pound:
-    weight = weight * lbs
-    print("your weight is " + str(weight)+ " kg")
+if unit.upper() == kilogram:
+    conv_weight = weight / lbs
+    conv_unit = "lbs"
+    print("your weight is " + str(conv_weight) + conv_unit)  
+elif unit.upper() == Pound:
+    conv_weight = weight * lbs
+    conv_unit = "kg"
+    print("your weight is " + str(conv_weight)+ conv_unit)
 else:
     print("Please write the correct unit of your weight ")
 
+
+if conv_unit == "kg" and conv_weight >= 90:
+   print("You need to exercise. ")
+elif conv_unit == "lbs" and conv_weight >= 198:
+    print("You need to exercise. ")
+elif conv_unit == "kg" and conv_weight <=57:
+    print("Abe maches ki thili. ")
+elif conv_unit == "lbs" and conv_weight <=125:
+    print("Abe maches ki thili. ")
+else:
+    print("You are fit bro. ")
